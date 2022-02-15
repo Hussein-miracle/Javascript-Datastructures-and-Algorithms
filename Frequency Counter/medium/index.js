@@ -10,7 +10,7 @@
 
 // Follow up: Could you solve the problem in linear time and in O(1) space?
 
-
+//O(n+m)
 const majorityElement = function(arr){
     let elements = []
     let frequency = {} ;
@@ -19,8 +19,7 @@ const majorityElement = function(arr){
     for(const item of arr){
         frequency[item] = frequency[item] ? frequency[item]+=1 : 1;
     }
-
-    console.log(frequency ,arr.length , (arr.length/3))
+    
     for(const item in frequency){
         if(frequency[item] > (arr.length / 3)){
             elements.push(item);
@@ -33,7 +32,7 @@ const majorityElement = function(arr){
 }
 
 // console.log(majorityElement([1,2])) // [1,2]
-console.log(majorityElement([1])) // [1]
+// console.log(majorityElement([1])) // [1]
 // console.log(majorityElement([3,2,3])) // [3]
 // console.log(majorityElement([3,2,2,1,2,4,3,3,3,4,44,4,5,5,5,5,5,6])) // [3]
 
@@ -43,37 +42,60 @@ console.log(majorityElement([1])) // [1]
 
 // Return the sorted string. If there are multiple answers, return any of them.
 
- 
 
-// Example 1:
+//O(N*2)
+const frequencySort = function(s){
+    let arr = [];
+    const freq = {};
+    let str = [];
 
-// Input: s = "tree"
-// Output: "eert"
-// Explanation: 'e' appears twice while 'r' and 't' both appear once.
-// So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
-// Example 2:
+    if(s.length > 1){
+        arr = s.split("");
+        for(const char of arr){
+            freq[char] = freq[char] ? freq[char]+=1 : 1; 
+        }
+    }else{
+        return s;
+    }
+    const pusher = function(b,times){
+        const arr = Array(times).fill(b);
+        return arr;    
+    }
 
-// Input: s = "cccaaa"
-// Output: "aaaccc"
-// Explanation: Both 'c' and 'a' appear three times, so both "cccaaa" and "aaaccc" are valid answers.
-// Note that "cacaca" is incorrect, as the same characters must be together.
-// Example 3:
+    const entriesSorter = function(arr){
+        for(let i = arr.length; i > 0 ; i--){
+            for(let j = 0; j < i - 1  ;j++){
+                if(arr[j][1] < arr[j+1][1]){
+                    [arr[j] , arr[j+1]] = [arr[j+1],arr[j]]
+                }
+            }
+        }
+    
+        return arr;
+    }
 
-// Input: s = "Aabb"
-// Output: "bbAa"
-// Explanation: "bbaA" is also a valid answer, but "Aabb" is incorrect.
-// Note that 'A' and 'a' are treated as two different characters.
- 
+    const unSortedEntries = Object.entries(freq);
+    const entries = entriesSorter(unSortedEntries);
 
-// Constraints:
+    for(let i = 0; i < entries.length ; i++){
+        str.push( ...pusher( entries[i][0],entries[i][1] )  );
+    }
 
-// 1 <= s.length <= 5 * 105
-// s consists of uppercase and lowercase English letters and digits.
-
+    return str.join("");
+}
 
 
+// console.log(frequencySort("Aabb")) //"bbAa" // "bbaA"
+// console.log(frequencySort("cccaaa")) //"cccaaa" // "aaaccc"
+// console.log(frequencySort("tree")) //"eert" // "eetr"
+// console.log(frequencySort("Arama")) //"aaArm" // "aarmA" // "aamrA"
+// console.log(frequencySort("olebody")) //"eert" // "eetr"
 
 
+
+
+// console.log(entriesSorter(  [  ['g',5]  , ['e',2] ,['p',2] ,['f',1] ,['k',8] ,['z',6] ]   ))
+// console.log(entriesSorter([['g',3],['a',5],['e',4],['p',4],['f',1]]))
 
 // Given an array of strings words and an integer k, return the k most frequent strings.
 
@@ -103,3 +125,50 @@ console.log(majorityElement([1])) // [1]
  
 
 // Follow-up: Could you solve it in O(n log(k)) time and O(n) extra space?
+
+//O(n*2)
+function topKFrequent(arr,n){
+    let freq = {}
+    let items = [];
+    if(arr.length <= 1) return arr;
+
+    for(const word of arr){
+        freq[word] = freq[word] ? freq[word]+=1 : 1; 
+    }
+
+    const entries = Object.entries(freq);
+    const entriesSorter = function(arr){
+
+        for(let i = arr.length; i > 0 ; i--){
+            for(let j = 0; j < i - 1  ;j++){
+                if(arr[j][1] < arr[j+1][1]){
+                    [ arr[j] ,  arr[j+1]   ] = [ arr[j+1] , arr[j] ]
+                }
+            }
+        }
+    
+        return arr;
+    }
+    const sortedEntries = entriesSorter(entries);
+    for(let i = 0;i < sortedEntries.length ; i++){
+        if(items.length === n){
+            break
+        }else{
+            items.push(sortedEntries[i][0])
+        }
+    }
+    
+    return items;
+}
+
+const words4 = ["i","love","leetcode","i","love","coding"]
+; const k4 = 3
+const words1 = ["i","love","leetcode","i","love","coding"]; const k1 = 2;
+const words2 = ["the","day","is","sunny","the","the","the","sunny","is","is"]; const k2 = 4
+const words3 = ["the","lolo","day","lmao","is","sunny","lmao","the","lmao","the","the","lmao","sunny","is","lmao","lolo","is","lolo"]; const k3 = 5
+
+
+// console.log(topKMostFrequent(words1,k1)) //["i","love"]
+// console.log(topKMostFrequent(words2 , k2)) // ["the","is","sunny","day"]
+// console.log(topKMostFrequent(words3 , k3)) 
+console.log(topKMostFrequent(words4 , k4)) // ["i","love","coding"]

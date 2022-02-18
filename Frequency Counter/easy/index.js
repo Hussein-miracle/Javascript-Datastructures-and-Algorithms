@@ -35,9 +35,9 @@ const same = function(array1,array2){
 }
 
 
-// console.log(same2([1,2,3],[4,1,9])); //true
-// console.log(same2([1,2,3],[1,9])); // false
-// console.log(same2([1,2,1],[4,4,1])); //false
+// console.log(same([1,2,3],[4,1,9])); //true
+// console.log(same([1,2,3],[1,9])); // false
+// console.log(same([1,2,1],[4,4,1])); //false
 
 
 
@@ -120,5 +120,33 @@ const uniqueNumberOfOccurence = function(arr){
 // console.log(uniqueNumberOfOccurence([26,2,16,16,5,5,26,2,5,20,20,5,2,20,2,2,20,2,16,20,16,17,16,2,16,20,26,16]))  //false
 // console.log(uniqueNumberOfOccurence([1,2,2,1,1,3]))  //true
 
+// Given two string arrays words1 and words2, return the number of strings that appear exactly once in each of the two arrays.
+// words1 = ["leetcode","is","amazing","as","is"], words2 = ["amazing","leetcode","is"]
+// Output: 2
+
+const countWords = function(words1, words2) {
+    let arr = [];
+    let frequencyResult1 = {};
+    let frequencyResult2 = {};
+
+    
+
+    for(const item of words1){
+        frequencyResult1[item] = frequencyResult1[item] ? frequencyResult1[item]+=1 : 1
+    }
+
+    for(const item of words2){
+        frequencyResult2[item] = frequencyResult2[item] ? frequencyResult2[item]+=1 : 1
+    }
+
+    for(const item in frequencyResult1){
+        if(frequencyResult1[item] === frequencyResult2[item] && frequencyResult1[item] === 1){
+            arr.push(item);
+        }
+    }
+
+    return arr.length;
+}
 
 
+console.log(countWords(["leetcode","is","amazing","as","is"],  ["amazing","leetcode","is"]) )

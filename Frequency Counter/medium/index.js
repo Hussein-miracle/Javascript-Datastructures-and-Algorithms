@@ -136,6 +136,7 @@ function topKFrequent(arr,n){
         freq[word] = freq[word] ? freq[word]+=1 : 1; 
     }
 
+    
     const entries = Object.entries(freq);
     const entriesSorter = function(arr){
 
@@ -150,12 +151,24 @@ function topKFrequent(arr,n){
         return arr;
     }
     const sortedEntries = entriesSorter(entries);
-    for(let i = 0;i < sortedEntries.length ; i++){
-        if(items.length === n){
-            break
-        }else{
-            items.push(sortedEntries[i][0])
+    const entriesSorterLexi = function(arr){
+
+        for(let i = arr.length; i > 0 ; i--){
+            for(let j = 0; j < i - 1  ;j++){
+                if(arr[j][1] === arr[j+1][1] && arr[j][0] > arr[j+1][0]){
+                    [ arr[j] ,  arr[j+1]   ] = [ arr[j+1] , arr[j] ]
+                }
+            }
         }
+    
+        return arr;
+    }
+
+    const sortedEntriesLexi = entriesSorterLexi(sortedEntries);
+    for(let i = 0;i < sortedEntriesLexi.length ; i++){
+        if(items.length < n){
+            items.push(sortedEntriesLexi[i][0])
+        }else{break}
     }
     
     return items;
@@ -168,7 +181,7 @@ const words2 = ["the","day","is","sunny","the","the","the","sunny","is","is"]; c
 const words3 = ["the","lolo","day","lmao","is","sunny","lmao","the","lmao","the","the","lmao","sunny","is","lmao","lolo","is","lolo"]; const k3 = 5
 
 
-// console.log(topKMostFrequent(words1,k1)) //["i","love"]
-// console.log(topKMostFrequent(words2 , k2)) // ["the","is","sunny","day"]
-// console.log(topKMostFrequent(words3 , k3)) 
-console.log(topKMostFrequent(words4 , k4)) // ["i","love","coding"]
+console.log(topKFrequent(words1,k1)) //["i","love"]
+// console.log(topKFrequent(words2 , k2)) // ["the","is","sunny","day"]
+// console.log(topKFrequent(words3 , k3)) 
+console.log(topKFrequent(words4 , k4)) // ["i","love","coding"]

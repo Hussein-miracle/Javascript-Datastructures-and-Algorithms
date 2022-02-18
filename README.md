@@ -3,12 +3,12 @@ This is a repo for solutions to data structures and algorithms.
 The topics that have been touched are marked with ✅.
 
 ## The topics in other:
-### Frequency Counter;
-### Multiple Pointers;
+### Frequency Counter ✅;
+### Multiple Pointers✅;
 ### Sliding Window;
 ### Recursion ;
 ### Searching Algorithms (Linear and Binary);
-### Bubble Sort;
+### Bubble Sort ✅;
 ### Selection Sort;
 ### Insertion Sort;
 ### Merge Sort;

@@ -5,9 +5,11 @@ The topics that have been touched are marked with ✅.
 ## The topics in other:
 ### Frequency Counter ✅;
 ### Multiple Pointers✅;
-### Sliding Window;
-### Recursion ;
+### Sliding Window✅;
+### Recursion ✅;
 ### Searching Algorithms (Linear and Binary);
+    * __Linear Search__ ;
+    * __Binary Search__ ;
 ### Bubble Sort ✅;
 ### Selection Sort;
 ### Insertion Sort;

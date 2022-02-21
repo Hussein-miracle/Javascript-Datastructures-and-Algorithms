@@ -9,7 +9,27 @@
 // The tests are generated such that there is exactly one solution. You may not use the same element twice.
 
 // Your solution must use only constant extra space.
+const numsArray = [1,3,7,9,2];
+const targetToFind = 11;
 
+const findTwoSum = function(nums, target) {
+  const numsMap = {};
+  
+  for(let p = 0; p < nums.length; p++) {
+    const currentMapVal = numsMap[nums[p]];//undefined
+    console.log(numsMap);
+    if(currentMapVal >= 0) {
+      return [currentMapVal, p];
+    } else {
+      const numberToFind = target - nums[p]; // 11 - 1 ,11 - 3 ,11 - 7, 11 - 9,11 - 2;
+      numsMap[numberToFind] = p; // "10":0 , "8":1, "4":2,"2":3,"9":4
+    }
+  }
+  
+  return null;
+}
+
+// console.log(findTwoSum(numsArray, targetToFind));
 
 const twoSum = function(numbers, target) {
     let leftIndex = 0;
@@ -74,6 +94,7 @@ const twoSum = function(numbers, target) {
 const  judgeSquareSum = function(c) {
     left = 0;
     right = Math.floor(Math.sqrt(c));
+
     while(left <= right){
         if(left ** 2 + right **2 === c ){
             return true;
@@ -88,9 +109,9 @@ const  judgeSquareSum = function(c) {
     return false;
 };
 
-// console.log(judgeSquareSum(5)) //true
-// console.log(judgeSquareSum(3)) //false
-// console.log(judgeSquareSum(2)) //true;
+console.log(judgeSquareSum(5)) //true
+console.log(judgeSquareSum(3)) //false
+console.log(judgeSquareSum(2)) //true;
 
 
 
@@ -128,7 +149,7 @@ const threeSumMulti = function(arr, target) {
 
 
 
-console.log(threeSumMulti([1,1,2,2,3,3,4,4,5,5], 8)); // Output: 20
+// console.log(threeSumMulti([1,1,2,2,3,3,4,4,5,5], 8)); // Output: 20
 // Explanation: 
 // Enumerating by the values (arr[i], arr[j], arr[k]):
 // (1, 2, 5) occurs 8 times;
@@ -137,7 +158,7 @@ console.log(threeSumMulti([1,1,2,2,3,3,4,4,5,5], 8)); // Output: 20
 // (2, 3, 3) occurs 2 times.
 
 
-console.log(threeSumMulti([1,1,2,2,2,2],5)); // Output: 12
+// console.log(threeSumMulti([1,1,2,2,2,2],5)); // Output: 12
 // Explanation: 
 // arr[i] = 1, arr[j] = arr[k] = 2 occurs 12 times:
 // We choose one 1 from [1,1] in 2 ways,

@@ -148,7 +148,7 @@ const removeElement = function(nums, val) {
     let left= 0;
     let right = nums.length-1;
 
-    while(right > ){
+    while(right > left ){
         if(nums[left] === val){
             nums.splice(left,1)
         }else if(arr[right] === val){
@@ -172,9 +172,9 @@ const removeElement = function(nums, val) {
 // 0 <= nums[i] <= 50
 // 0 <= val <= 100
 
-console.log(removeElement([3,2,2,3],3)) //output:[2,2,_,_]
-console.log(removeElement([0,1,2,2,3,0,4,2],2)) //output:[0,1,4,0,3,_,_,_]
-console.log(removeElement([0,1,2,2,3,0,4,2],2)) //output:[0,1,4,0,3,_,_,_]
+// console.log(removeElement([3,2,2,3],3)) //output:[2,2,_,_]
+// console.log(removeElement([0,1,2,2,3,0,4,2],2)) //output:[0,1,4,0,3,_,_,_]
+// console.log(removeElement([0,1,2,2,3,0,4,2],2)) //output:[0,1,4,0,3,_,_,_]
 
 
 

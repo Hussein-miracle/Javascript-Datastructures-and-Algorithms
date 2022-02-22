@@ -11,7 +11,7 @@ The topics that have been touched are marked with ✅.
     * __Linear Search__ ;
     * __Binary Search__ ;
 ### Bubble Sort ✅;
-### Selection Sort;
+### Selection Sort✅;
 ### Insertion Sort;
 ### Merge Sort;
 ### Quick sort ;

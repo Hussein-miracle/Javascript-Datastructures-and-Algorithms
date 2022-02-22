@@ -1,13 +1,5 @@
 // 326. Power of Three
-// Easy
 
-// 770
-
-// 98
-
-// Add to List
-
-// Share
 // Given an integer n, return true if it is a power of three. Otherwise, return false.
 
 // An integer n is a power of three, if there exists an integer x such that n == 3x.
@@ -26,19 +18,29 @@
 
 // Input: n = 9
 // Output: true
-var isPowerOfThree = function(n) {
+const isPowerOfThree = function(n) {
     if(n <= 0) return !true;
-     let i = 0
-        while(i < n){
-            if(3**i < n){
-                i += 1
-            }else if(3**i == n){
-                return true
-            }else{
-                return false}
-        }
+    if(n % 3 === 0){
+        return true;
+    }
+};
+const isPowerOfThree = function(n) {
+    if(n <= 0) return !true;
+    let i = 0
+    while(i < n){
+        if(3**i < n){
+            i += 1
+        }else if(3**i === n){
+            return true
+        }else{
+            return false}
+    }
 };
 
+// console.log(isPowerOfThree(27))
+// console.log(isPowerOfThree(0))
+// console.log(isPowerOfThree(9))
+// console.log(isPowerOfThree(81))
 // Constraints:
 
 // -231 <= n <= 231 - 1
@@ -46,20 +48,11 @@ var isPowerOfThree = function(n) {
 
 
 // 342. Power of Four
-// Easy
 
-// 1337
-
-// 280
-
-// Add to List
-
-// Share
 // Given an integer n, return true if it is a power of four. Otherwise, return false.
 
 // An integer n is a power of four, if there exists an integer x such that n == 4x.
 
- 
 
 // Example 1:
 
@@ -92,15 +85,7 @@ var isPowerOfFour = function(n) {
 
 // -231 <= n <= 231 - 1
 // 509. Fibonacci Number
-// Easy
 
-// 2941
-
-// 254
-
-// Add to List
-
-// Share
 // The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
 
 // F(0) = 0, F(1) = 1
@@ -125,9 +110,14 @@ var isPowerOfFour = function(n) {
 // Output: 3
 // Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
-var fib = function(n) {
-    if(n===0) return 0;
+const  fib = function(n) {
+    if( n=== 0) return 0;
     if(n === 1) return 1;
     
-    return fib(n - 1) + fib(n-2);
+    return fib(n - 1) + fib(n - 2);
 };
+
+console.log(fib(2))//1
+console.log(fib(3))//2
+console.log(fib(4)) //3
+console.log(fib(5)) //4

@@ -12,9 +12,6 @@ const countGoodSubstrings1 = function(s) {
             tempStr+=str[j];
         }
 
-
-        "xyzzaz"
-
         
     }
     

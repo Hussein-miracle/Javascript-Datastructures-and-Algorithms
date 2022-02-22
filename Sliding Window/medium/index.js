@@ -3,12 +3,11 @@
 
 `Given a string s, find the length of the longest substring without repeating characters.
 
- 
-
 Example 1:
 
 Input: s = "abcabcbb"
 Output: 3
+
 Explanation: The answer is "abc", with the length of 3.
 Example 2:
 
@@ -23,42 +22,38 @@ Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.`
 
 var lengthOfLongestSubstring = function(s) {
-    if(s.length <=0) return s;
-    let string = "";
-    let tempStr = "";
-    let len = 0;
-    let str = [];
+    if(s.length <=0) return null;
+    let string = [];
+    let index = 0;
+    let tempStr = [];
     let start = 0;
     let scout = 1;
-    let end = s.length ;
-    while(start<end && scout < end){
-        // "pwwkew"
-        // if(s[start] !== s[scout]  && s[start] !==  )){
-        //     string+=s[start];
-        //     start = scout;
-            
-            
-        // }else{
-        //     tempStr = string;
-        //     start=scout+1;
-        //     string="";
-            
-        // }
-        scout++;
-        // len = Math.max(string.length,tempStr.length);
-    }
-    // for(let i =0;i<s.length;i++){
-    //     if(!str.includes(s[i])){
-    //         str.push(s[i]);
-    //     }
-    // }
-    console.log(tempStr);
+    
+    while(index <= s.length){
+        // console.log(string.length)
+        if(!tempStr.includes(s[start]) ){
+            tempStr.push(s[start]);
+            start++;
+            scout++;
+        }else{
+            tempStr = [];
+            start = scout;
+            scout++;
+        }
 
-    return len;
+        string.push(tempStr.length);
+        index++;
+    }
+    
+    let sortedStr = string.sort((a,b) => b - a);
+
+    return sortedStr;
 };
 // console.log(lengthOfLongestSubstring("abcabcbb"))//3
+// new Array().
 // console.log(lengthOfLongestSubstring("bbbbb"))//1
-// console.log(lengthOfLongestSubstring("pwwkew"))//
+console.log(lengthOfLongestSubstring("pwwkew"))//3
+console.log(lengthOfLongestSubstring("pwwwkereetwerk"))//5
 // Constraints:
 
 // 0 <= s.length <= 5 * 10^4
@@ -69,8 +64,7 @@ var lengthOfLongestSubstring = function(s) {
 
 
 // Q2
-`
-438. Find All Anagrams in a String
+const q2 = `438. Find All Anagrams in a String
 Medium
 Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
 
@@ -93,30 +87,40 @@ Explanation:
 The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".`
+
 const findAnagrams = function(s, p) {
     let indexArr = [];
-    let string = s.split("");
-    let len = p.split("").length;
-    for(let i= 0;i < string.length - len + 1;i++){
-        let str = string.slice(i,i+len).join("");
-        // "abab" , "äb"
-        console.log(str, p)
-        // for(let j = i;j < len;j++){
-        //     if(p.includes(str[j])){
-        //         indexArr.push(j);
-        //     }else{
-        //         break;
-        //     }
+    let  pHash = {};
 
-        // }
-        if(str === p || str.includes(p)){
-            indexArr.push(i);
-        }else if(str === p.split("").reverse().join("")){
-            // indexArr.push(i);
-        }else if(str.split("").reverse().join("") === p){
-            // indexArr.push(i)
+    for(const char of p){
+        pHash[char] = pHash[char] ? pHash[char]+=1 : 1
+    }
+
+    for(let i = 0;i < s.length - p.length + 1;i++){
+        let count = 0;
+        let str = s.substring(i,i+p.length);
+        // console.log(str)
+        let hash = {};
+        
+        for(const char of str){
+            hash[char] = hash[char] ? hash[char]+=1 : 1;
         }
 
+        // console.log(hash,pHash)
+        for(const char in hash){
+            if(hash[char]  === pHash[char]  && !(hash[char] > 1)){
+                count++;
+            }else if(hash[char]  === pHash[char]  && (hash[char] > 1)){
+                count += hash[char];
+            }
+            // console.log(hash , count)
+        }
+
+
+        if(count === p.length){
+            indexArr.push(i)
+        }
+        
     }
 
     return indexArr;
@@ -128,6 +132,9 @@ const findAnagrams = function(s, p) {
 // s and p consist of lowercase English letters.
 // console.log(findAnagrams("abab", "ab"))//[0,1,2]
 // console.log(findAnagrams("cbaebabacd", "abc"))//[0,6]
+// console.log(findAnagrams("baa","aa"))//[1]
+// console.log(findAnagrams("baaaccc","ccc"))//[4]
+// console.log(findAnagrams("baacaaa","aaa"))//[4]
 
 
 //Q3 // 1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold // SOLVED

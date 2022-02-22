@@ -1,29 +1,16 @@
 // 326. Power of Three
 
-// Given an integer n, return true if it is a power of three. Otherwise, return false.
-
-// An integer n is a power of three, if there exists an integer x such that n == 3x.
-
- 
-
-// Example 1:
-
-// Input: n = 27
-// Output: true
-// Example 2:
-
-// Input: n = 0
-// Output: false
-// Example 3:
-
-// Input: n = 9
-// Output: true
 const isPowerOfThree = function(n) {
     if(n <= 0) return !true;
-    if(n % 3 === 0){
-        return true;
-    }
+    if(n === 1) return true;
+    if(n === 3) return true;
+
+
+    return isPowerOfThree( n / 3);
 };
+
+
+
 const isPowerOfThree = function(n) {
     if(n <= 0) return !true;
     let i = 0
@@ -37,38 +24,23 @@ const isPowerOfThree = function(n) {
     }
 };
 
-// console.log(isPowerOfThree(27))
-// console.log(isPowerOfThree(0))
-// console.log(isPowerOfThree(9))
-// console.log(isPowerOfThree(81))
-// Constraints:
-
-// -231 <= n <= 231 - 1
-
-
-
 // 342. Power of Four
 
-// Given an integer n, return true if it is a power of four. Otherwise, return false.
-
-// An integer n is a power of four, if there exists an integer x such that n == 4x.
-
-
-// Example 1:
-
-// Input: n = 16
-// Output: true
-// Example 2:
-
-// Input: n = 5
-// Output: false
-// Example 3:
-
-// Input: n = 1
-// Output: true
-var isPowerOfFour = function(n) {
-
+const isPowerOfFour = function(n) {
     if(n <= 0) return !true;
+    if(n === 1) return true;
+    if(n === 4) return true;
+
+
+    return isPowerOfFour(n / 4);
+
+};
+
+const isPowerOfFour = function(n) {
+    if(n <= 0) return !true;
+    
+
+    
         let i = 0
         while(i < n){
             if(4**i < n){
@@ -79,11 +51,18 @@ var isPowerOfFour = function(n) {
                 return false}
         }
 
+
+    
+
 };
 
-// Constraints:
+// console.log(isPowerOfFour(1))
+// console.log(isPowerOfFour(12))
+// console.log(isPowerOfFour(5))
+// console.log(isPowerOfFour(16))
 
-// -231 <= n <= 231 - 1
+
+
 // 509. Fibonacci Number
 
 // The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
@@ -117,7 +96,7 @@ const  fib = function(n) {
     return fib(n - 1) + fib(n - 2);
 };
 
-console.log(fib(2))//1
-console.log(fib(3))//2
-console.log(fib(4)) //3
-console.log(fib(5)) //4
+// console.log(fib(2))//1
+// console.log(fib(3))//2
+// console.log(fib(4)) //3
+// console.log(fib(5)) //4

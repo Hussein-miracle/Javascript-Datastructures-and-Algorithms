@@ -33,20 +33,6 @@ function maxSubarraySum(arr, num) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function maxSubarraySum2(arr, num){
     let maxSum = 0;
     let tempSum = 0;
@@ -68,8 +54,5 @@ function maxSubarraySum2(arr, num){
     return maxSum;
 }
 
-console.log(maxSubarraySum2([2,6,9,2,1,8,5,6,3],3));
-
-
-
+// console.log(maxSubarraySum2([2,6,9,2,1,8,5,6,3],3));
 

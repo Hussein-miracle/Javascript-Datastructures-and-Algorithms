@@ -4,6 +4,21 @@
 // EASY
 
 //O(N+S+M)
+
+const same1 = function(array1,array2){
+    if(array1.length !== array2.length) return false;
+    let arr1 = array1.sort((a,b) => a-b);
+    
+    let arr2 = array2.sort((a,b) => a-b);
+
+    for(let i = 0;i< array1.length;i++){
+        if(arr1[i]**2 !== arr2[i]){
+            return false
+        }else{
+            return true;
+        }
+    }
+}
 const same = function(array1,array2){
     let frequencyResult1 = {};
     let frequencyResult2 = {};
@@ -35,9 +50,9 @@ const same = function(array1,array2){
 }
 
 
-// console.log(same([1,2,3],[4,1,9])); //true
-// console.log(same([1,2,3],[1,9])); // false
-// console.log(same([1,2,1],[4,4,1])); //false
+console.log(same1([1,2,3],[4,1,9])); //true
+console.log(same1([1,2,3],[1,9])); // false
+console.log(same1([1,2,1],[4,4,1])); //false
 
 
 
@@ -149,4 +164,4 @@ const countWords = function(words1, words2) {
 }
 
 
-console.log(countWords(["leetcode","is","amazing","as","is"],  ["amazing","leetcode","is"]) )
+// console.log(countWords(["leetcode","is","amazing","as","is"],  ["amazing","leetcode","is"]) )

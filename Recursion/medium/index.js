@@ -1,13 +1,5 @@
 // 1823. Find the Winner of the Circular Game
-// Medium
 
-// 952
-
-// 29
-
-// Add to List
-
-// Share
 // There are n friends that are playing a game. The friends are sitting in a circle and are numbered from 1 to n in clockwise order. More formally, moving clockwise from the ith friend brings you to the (i+1)th friend for 1 <= i < n, and moving clockwise from the nth friend brings you to the 1st friend.
 
 // The rules of the game are as follows:
@@ -19,7 +11,6 @@
 // Else, the last friend in the circle wins the game.
 // Given the number of friends, n, and an integer k, return the winner of the game.
 
- 
 
 // Example 1:
 
@@ -41,12 +32,20 @@
 // Input: n = 6, k = 5
 // Output: 1
 // Explanation: The friends leave in this order: 5, 4, 6, 2, 3. The winner is friend 1.
- 
+// const findTheWinner = function(n, k) {
+//     if( k > n || n > 500 || k < 1) return;
 
-// Constraints:
+//     // console.log(n)
+//     if(n === 0) return 1;
 
-// 1 <= k <= n <= 500
 
+
+//     return n - findTheWinner(n-k,k);
+// };
+
+
+// // console.log(findTheWinner(5,2)) //3
+// console.log(findTheWinner(6,5))//1
 
 
 // 394. Decode String
@@ -60,25 +59,42 @@
 
 // Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4].
 
- 
+const decodeString = function(s){
+    if(s.length < 1 || s.length > 30) return s;
+    let numbers = [];
+    let repeatStr = [];
+    let tempNum = "";
+    let str = "";
 
-// Example 1:
+    for(const char of s){
 
-// Input: s = "3[a]2[bc]"
-// Output: "aaabcbc"
-// Example 2:
+        if(!isNaN(char)){
+            tempNum +=char //3
+        }else if(char === "["){
+            numbers.push(tempNum);
+            tempNum="";
+            repeatStr.push(str);
+            str = "";
+        }else if(char === "]"){
+            str =  repeatStr.pop() + str.repeat(numbers.pop()) 
+        }else{
+            str +=char;
+        }
+    }
 
-// Input: s = "3[a2[c]]"
-// Output: "accaccacc"
-// Example 3:
 
-// Input: s = "2[abc]3[cd]ef"
-// Output: "abcabccdcdcdef"
- 
+    return str;
+}
+
+
 
 // Constraints:
-
-// 1 <= s.length <= 30
 // s consists of lowercase English letters, digits, and square brackets '[]'.
-// s is guaranteed to be a valid input.
 // All the integers in s are in the range [1, 300].
+
+
+// console.log(decodeString("3[a2[b]]")) // "aaabb"
+// console.log(decodeString("3[a]2[b]")) // "aaabb"
+// console.log(decodeString("3[a]2[bc]")) // "aaabcbc"
+// console.log(decodeString( "3[a2[c]]")) // "accaccacc"
+// console.log(decodeString( "2[abc]3[cd]ef")) // "abcabccdcdcdef"

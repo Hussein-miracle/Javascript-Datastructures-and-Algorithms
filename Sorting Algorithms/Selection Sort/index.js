@@ -6,7 +6,7 @@ function selectionSort(nums){
 
     for(let i = 0;i < nums.length;i++){
         let min = i;
-        console.log(nums)
+        
 
         for(let j = i+1;j < nums.length;j++){
             if(nums[min] > nums[j]){
@@ -22,7 +22,8 @@ function selectionSort(nums){
 }
 
 
-// console.log(insertionSort([5,9,7,3,1,23,467,2,4,3,6]))
+// console.log(selectionSort([5,9,7,3,1,23,467,2,4,3,6]))
+
 
 
 

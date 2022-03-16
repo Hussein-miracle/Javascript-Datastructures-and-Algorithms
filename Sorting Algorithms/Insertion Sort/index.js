@@ -50,13 +50,37 @@ function insertionSort2(arr){
     return arr;
 
 };
+
+
+function insertionSort3(inputArr) {
+    let n = inputArr.length;
+
+    for (let i = 1; i < n; i++) {
+        // Choosing the first element in our unsorted subarray
+        let currentVal = inputArr[i];
+        // The last element of our sorted subarray
+        let j = i-1; 
+
+        while ( ( j >= 0 ) && ( inputArr[j] > currentVal ) ) {
+
+            inputArr[j+1] = inputArr[j];
+            
+            j--;
+        }
+
+        inputArr[j+1] = currentVal;
+
+    }
+    return inputArr;
+}
+// [2,1,9,76,4]
 // console.log(insertionSort([1,2,4,9,76]))
 
 
 // console.log(insertionSort([2,1,3,7,6,4,8,0]))
 // console.log(insertionSort1([2,1,9,76,4]))
-console.log(insertionSort2([2,1,9,76,4]))
-//[2,2]
+// console.log(insertionSort2([2,1,9,76,4]))
+// console.log(insertionSort3([2,1,9,76,4]))
 
 
 

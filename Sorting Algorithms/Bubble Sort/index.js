@@ -79,7 +79,7 @@ function bubbleSort2(arr){
         for(let j = 0 ; j < arr.length - 1;j++){
 
             if(arr[j] > arr[j+1]){
-                console.log(arr[j]);
+                // console.log(arr[j]);
                 swap(arr,j+1,j);
 
             }

@@ -24,6 +24,7 @@ const targetIndices = function(nums,target){
 // 1608. Special Array With X Elements Greater Than or Equal X
 
 // You are given an array nums of non-negative integers. 
+
 // nums is considered special if there exists a number x such that there are exactly x numbers in nums that are greater than or equal to x.
 
 // Notice that x does not have to be an element in nums.
@@ -54,17 +55,27 @@ const targetIndices = function(nums,target){
 const SpecialArr = function(nums){
     if(nums.length < 1 || nums.length > 100) return nums;
 
+    let left = 0;
+    let right = nums.length - 1;
     let count = 0;
     let len = nums.length;
-    let start = 0;
-    let end = nums.length - 1;
     
-    for(let i = 0; i < nums.length;i++){
-        if(nums[i] === 0){
-            len--;
+    
+
+    while(left <= right){
+        if(nums[left] === 0){
+            nums.splice(left,1);
+            left = left;
+        }else{
+            left++;
         }
+
     }
     
+    len = nums.length;
+    let start = 0;
+    let end = nums.length - 1;
+
     while(start <= end){
         
         if(nums[start] >= len  && len !== 0){
@@ -82,9 +93,9 @@ const SpecialArr = function(nums){
 
 }
 
-// console.log(SpecialArr([0,4,3,0,4]))  // 3
-// console.log(SpecialArr([0,0,1,5,2] )) // -1
-// console.log(SpecialArr([3,5]) )      // 2
+console.log(SpecialArr([0,4,3,0,4]))  // 3
+console.log(SpecialArr([0,0,1,5,2] )) // -1
+console.log(SpecialArr([3,5]) )      // 2
 
 
 // Constraints:

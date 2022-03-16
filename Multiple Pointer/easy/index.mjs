@@ -1,5 +1,9 @@
 "use strict";
 
+import ascii from "../../ASCII/index.mjs";
+
+console.log(ascii);
+
 // Q1: 88. Merge Sorted Array
 
 // You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
@@ -10,6 +14,7 @@
 
 
 const merge = function(nums1, m, nums2, n) {
+
     for(let i = 0;i < nums1.length ;i++){
         
             if(nums1[i] > nums2[i]  && nums2[i] !== 0){
@@ -24,8 +29,10 @@ const merge = function(nums1, m, nums2, n) {
             }
         
     }
+
     let k = nums1.length-n;
-    let u=0;
+
+    let u = 0;
     while(k < nums1.length){
         nums1[k] = nums2[u] ;
         u++;
@@ -66,6 +73,8 @@ const validPalindrome = function(str){
 
     return true;
 }
+
+
 const validPalindrome2 = function(str){
     const trueString = str.toLowerCase().replace(/([`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~ ])/g, "");
 
@@ -149,10 +158,11 @@ const removeElement = function(nums, val) {
     let right = nums.length-1;
 
     while(right > left ){
+
         if(nums[left] === val){
-            nums.splice(left,1)
+            nums.splice(left,1);
         }else if(arr[right] === val){
-            nums.splice(right,1)
+            nums.splice(right,1);
         }else if(arr[left] !== val){
             left++;
         }else if(arr[right] !== val){

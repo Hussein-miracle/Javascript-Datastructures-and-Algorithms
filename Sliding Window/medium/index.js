@@ -21,20 +21,29 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.`
 
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function(s) {    /// GOT A BUG
     if(s.length <=0) return null;
     let string = [];
     let index = 0;
     let tempStr = [];
     let start = 0;
     let scout = 1;
+    let current = {};
+
+    // "pwwwkereetwerk"
+    for(let i= 0; i < s.length ; i++ ){
+        current[s[i]] =  current[s[i]]  ? current[s[i]]+=1 : current[s[i]] ;
+    }
+
     
     while(index <= s.length){
         // console.log(string.length)
         if(!tempStr.includes(s[start]) ){
             tempStr.push(s[start]);
             start++;
+
             scout++;
+
         }else{
             tempStr = [];
             start = scout;
@@ -47,13 +56,13 @@ var lengthOfLongestSubstring = function(s) {
     
     let sortedStr = string.sort((a,b) => b - a);
 
-    return sortedStr;
+    return sortedStr[0];
 };
 // console.log(lengthOfLongestSubstring("abcabcbb"))//3
 // new Array().
-// console.log(lengthOfLongestSubstring("bbbbb"))//1
-console.log(lengthOfLongestSubstring("pwwkew"))//3
-console.log(lengthOfLongestSubstring("pwwwkereetwerk"))//5
+console.log(lengthOfLongestSubstring("bbbbb"))//1
+// console.log(lengthOfLongestSubstring("pwwkew"))//3
+// console.log(lengthOfLongestSubstring("pwwwkereetwerk"))//5
 // Constraints:
 
 // 0 <= s.length <= 5 * 10^4
@@ -88,7 +97,7 @@ The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".`
 
-const findAnagrams = function(s, p) {
+const findAnagrams = function(s, p) { /// NEED TO REFACTOR // TOO SLOW
     let indexArr = [];
     let  pHash = {};
 
@@ -97,11 +106,13 @@ const findAnagrams = function(s, p) {
     }
 
     for(let i = 0;i < s.length - p.length + 1;i++){
+
         let count = 0;
+
         let str = s.substring(i,i+p.length);
         // console.log(str)
         let hash = {};
-        
+        //O(N(S+M))
         for(const char of str){
             hash[char] = hash[char] ? hash[char]+=1 : 1;
         }
@@ -139,7 +150,7 @@ const findAnagrams = function(s, p) {
 
 //Q3 // 1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold // SOLVED
 
-const numOfSubarrays1 = function(arr, k, threshold) {
+const numOfSubarrays1 = function(arr, k, threshold) { /// WAY FUCKING SLOW
     if(arr.length < 1 || k < 1 ||  arr.length > 10**5 || threshold < 0) return null;
     let subArraysCounter = 0;
 
@@ -174,7 +185,7 @@ const numOfSubarrays1 = function(arr, k, threshold) {
 
 
 
-const numOfSubarrays = function(arr, k, threshold) {
+const numOfSubarrays = function(arr, k, threshold) { // OPTIMAL SOLUTION
     if(arr.length < 1 || k < 1 ||  arr.length > 10**5 || threshold < 0) return null;
     let subArraysCounter = 0;
     let sum = 0;

@@ -12,13 +12,18 @@ const same1 = function(array1,array2){
     let arr2 = array2.sort((a,b) => a-b);
 
     for(let i = 0;i< array1.length;i++){
+        
         if(arr1[i]**2 !== arr2[i]){
             return false
         }else{
             return true;
         }
     }
+
+    
 }
+
+
 const same = function(array1,array2){
     let frequencyResult1 = {};
     let frequencyResult2 = {};

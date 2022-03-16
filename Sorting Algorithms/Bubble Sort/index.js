@@ -38,6 +38,7 @@ const bubbleSort1 = function(arr){
 
 function bubbleSort(arr){
     let swapIndex;
+    
     const swap = (arr,i,j) =>{
         [ arr[i] , arr[j] ] = [ arr[j] , arr[i] ]
     }
@@ -47,13 +48,14 @@ function bubbleSort(arr){
 
 
         for(let k = 0;k < i - 1;k++){
+            
             if(arr[k] > arr[k+1]){
                 swap(arr,k,k+1);
             }
         }
 
 
-        // console.log(swapIndex);
+
     }
 
 
@@ -74,7 +76,7 @@ function bubbleSort2(arr){
 
     for(let i = 0;i < arr.length;i++){
 
-        for(let j = 0 ; j < arr.length;j++){
+        for(let j = 0 ; j < arr.length - 1;j++){
 
             if(arr[j] > arr[j+1]){
                 

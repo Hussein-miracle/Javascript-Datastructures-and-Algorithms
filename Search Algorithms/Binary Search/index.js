@@ -1,4 +1,4 @@
-const binarySearch= function(arr,val){
+const binarySearch = function(arr,val){
     let start = 0;
     let end = arr.length -1;
     let mid =  Math.floor((start+end) / 2);
@@ -18,6 +18,10 @@ const binarySearch= function(arr,val){
 
     return -1;
 }
+
+
+
+
 const binarySearch2 = function(arr,val){
     let start = 0;
     let end = arr.length -1;
@@ -41,4 +45,4 @@ const binarySearch2 = function(arr,val){
     return -1;
 }
 
-console.log(binarySearch2([2,5,6,7,8,9],7));
+// console.log(binarySearch2([2,5,6,7,8,9],7));

@@ -56,7 +56,7 @@
 
 
 const mergeSort = function(arr){
-    if(arr.length <= 1)return arr;
+    if(arr.length <= 1) return arr;
 
     const merge = function(arr1,arr2){
         let result = [];
@@ -102,34 +102,3 @@ const mergeSort = function(arr){
 // console.log( mergeSort("dmkamjsfnjqasd"))
 // console.log( mergeSort([34,23,55,43,112,11,34,567,88,456,23455,321,234]))
 
-var merge = function(nums1, m, nums2, n) {
-    let [i,j] = [0,0];
-    let result = [];
-    nums1 = nums1.slice(0,m);
-    while(i < m && j < n){
-        if(nums1[i] > nums2[j]){
-            result.push(nums2[j])
-            j++;
-        }else{
-            result.push(nums1[i])
-            i++;
-        }
-    }
-    
-    while(i < m){
-        result.push(nums1[i]);
-        i++;
-    }
-    
-    while(j < n){
-        result.push(nums2[j]);
-        j++;
-    }
-    nums1 = [...result];
-    
-    return nums1;
-}
-console.log(merge([1,2,3,0,0,0],
-    3,
-    [2,5,6],
-    3))

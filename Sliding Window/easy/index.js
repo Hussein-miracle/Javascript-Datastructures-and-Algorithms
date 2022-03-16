@@ -3,7 +3,9 @@
 const countGoodSubstrings1 = function(s) {
     if(!(s.length > 1))  return null;
     const str = s.split("");
+    
     // console.log(str);
+
     let tempStr = "";
 
     for(let j = 0 ; j < str.length - 2;j++){
@@ -24,13 +26,15 @@ const countGoodSubstrings1 = function(s) {
 // console.log(countGoodSubstrings1("aababcabc")) //output:4
 
 
-const countGoodSubstrings = function(s) {
+const countGoodSubstrings = function(s) {  // SLOW BUT READABLE
     if(!(s.length > 1))  return null;
     let count = 0;
     for(let j = 0; j < s.length - 2;j++){
 
         const sub = s.substring(j,j+3);
+
         let set = new Set();
+
         for(let i = 0; i < sub.length;i++){
             set.add(sub[i])
         }
@@ -59,10 +63,13 @@ const countGoodSubstrings = function(s) {
 //Q2:// 485. Max Consecutive Ones  //SOLVED
 
 
-const findMaxConsecutiveOnes = function(nums) {
+const findMaxConsecutiveOnes = function(nums) {  // OPTIMAL .FAST
     if(nums.length > 10**5 || nums.length < 1) return null;
+
     let maxOnes = 0;
+
     let tempOnes = 0;
+
     for(let i = 0; i < nums.length;i++){
         if(nums[i] === 1){
             tempOnes++;
@@ -115,7 +122,7 @@ The minimum possible difference is 2.`
 
 
 
-const minimumDifference = function(nums, k) {
+const minimumDifference = function(nums, k) {  /// NOT YET SOLVED /PROBLEM NOT CLEAR
     if(nums.length < 1) return null;
     if(nums.length === 1) return 0;
 

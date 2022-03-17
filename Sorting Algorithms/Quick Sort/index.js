@@ -1,5 +1,6 @@
 // Version with ES2015 Syntax
 function pivot(arr, start = 0, end = arr.length - 1) {
+  
   const swap = (arr, idx1, idx2) => {
     [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
   };
@@ -49,6 +50,28 @@ function quickSort(arr, left = 0, right = arr.length -1){
 //  2,1      5  9
 //    2
 //  1
+
+
+
+function quickSort1(arr){
+  if(arr.length <=1) return arr;
+
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr[pivotIndex];
+  let less = [],same = [],more = [];
+
+  for(let i = 0; i< arr.length ; i++){
+    if(arr[i] === pivot){
+      same.push(arr[i])
+    }else if(arr[i] > pivot){
+      more.push(arr[i])
+    }else{
+      less.push(arr[i]);
+    }
+  }
+
+  return quickSort1(less).concat(same,quickSort1(more));
+}
 
 
 

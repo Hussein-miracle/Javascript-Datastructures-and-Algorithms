@@ -18,7 +18,7 @@ The topics that have been touched are marked with ✅.
 ### Merge Sort✅;
 ### Quick sort ✅;
 ### Radix Sort✅;
-### Singly Linked lists;
+### Singly Linked lists✅;
 ### Doubly linked lists;
 ### Stacks + Queues;
 ### Binary search Trees;

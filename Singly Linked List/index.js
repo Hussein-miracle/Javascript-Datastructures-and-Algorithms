@@ -87,7 +87,7 @@ class SinglyLinkedList {
         }
         return head;
     }
-
+    
     unshift(val){
         let node = new Node(val);
         
@@ -107,18 +107,41 @@ class SinglyLinkedList {
 
     }
 
-    get(val){
+    get(index){
+        let count = 0;
+        let valArr = [];
+        if(index >= this.length || index < 0 || !this.head) return null;
 
+        let current = this.head; 
+
+        while(current && count !== index){
+            current = current.next;
+            count++;
+        }
+
+        valArr.push(current.val);
+
+        console.log(valArr);
+
+        return current;
     }
 
     set(index,val){
-
+        let node = this.get(index);
+        if(!this.head) return null;
+        if(!node){
+            return false;
+        }else{
+            node.val = val;
+            return true;
+        }
     }
 
 
 }
 
 const list1 = new SinglyLinkedList();
+
 list1.push(3);
 list1.push("feet");
 list1.push("fee");
@@ -130,12 +153,18 @@ console.log(list1.print());
 // console.log(list1.length);
 // console.log(list1.pop1());
 // console.log(list1.shift());
-console.log(list1.print());
+// console.log(list1.print());
 console.log(list1.unshift("kinga"));
-console.log(list1.print());
+// console.log(list1.print());
+// console.log( list1.get(2) );
+// console.log( list1.get(0) );
+// console.log( list1.get(-10) );
 // console.log(list1.length);
 // console.log(list1.print());
 // console.log(list1);
 // console.log(list1.pop());
 // console.log(list1.print());
-// console.log(list1);
+console.log(list1.set(2,"shall we?"));
+console.log(list1.print());
+console.log(list1.set(list1.length - 2,"let's go!"));
+console.log(list1.print());

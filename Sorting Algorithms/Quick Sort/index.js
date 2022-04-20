@@ -1,24 +1,24 @@
 // Version with ES2015 Syntax
 function pivot(arr, start = 0, end = arr.length - 1) {
   
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
+    const swap = (arr, idx1, idx2) => {
+      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    };
 
-  // We are assuming the pivot is always the first element
-  let pivot = arr[start];
-  let swapIdx = start;
+    // We are assuming the pivot is always the first element
+    let pivot = arr[start];
+    let swapIdx = start;
 
-  for (let i = start + 1; i <= end; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
+    for (let i = start + 1; i <= end; i++) {
+      if (pivot > arr[i]) {
+        swapIdx++;
+        swap(arr, swapIdx, i);
+      }
     }
-  }
 
   // Swap the pivot from the start the swapPoint
-  swap(arr, start, swapIdx);
-  return swapIdx;
+    swap(arr, start, swapIdx);
+    return swapIdx;
 }
 
 pivot([4,8,2,1,5,7,6,3])
@@ -60,7 +60,7 @@ function quickSort1(arr){
   let pivot = arr[pivotIndex];
   let less = [],same = [],more = [];
 
-  for(let i = 0; i< arr.length ; i++){
+  for(let i = 0; i < arr.length ; i++){
     if(arr[i] === pivot){
       same.push(arr[i])
     }else if(arr[i] > pivot){
@@ -76,3 +76,24 @@ function quickSort1(arr){
 
 
 
+
+
+const quickSort$ = function (arr){
+  if(arr.length <= 1) return arr;
+  let pivot = arr.at(-1)
+  let leftArr = [];
+  let rightArr = [];
+
+  // while()
+  for(let i = 0;i < arr.length - 1;i++){
+    if(arr[i] > pivot){
+      rightArr.push(arr[i])
+    }else{
+      leftArr.push(arr[i])
+    }
+  }
+  
+  return [...quickSort$(leftArr),pivot,...quickSort$(rightArr)]
+}
+
+console.log(quickSort$([4,6,9,1,2,5,3]))

@@ -19,11 +19,11 @@ The topics that have been touched are marked with ✅.
 ### Quick sort ✅;
 ### Radix Sort✅;
 ### Singly Linked lists✅;
-### Doubly linked lists;
-### Stacks + Queues;
-### Binary search Trees;
-### Tree traversal (Breadth first search and Depth first search);
+### Doubly linked lists✅;
+### Stacks + Queues✅;
+### Binary search Trees✅;
+### Tree traversal (Breadth first search and Depth first search)✅;
 ### Binary Heaps;
 ### Hash Tables;
-### Graph Traversal (Bfs and Dfs);
+### Graph Traversal (Bfs and Dfs)
 ### Dijkstra's Algorithm;

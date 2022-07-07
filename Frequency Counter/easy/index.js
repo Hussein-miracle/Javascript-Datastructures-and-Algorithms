@@ -15,33 +15,33 @@ const same1 = function(array1,array2){
         
         if(arr1[i]**2 !== arr2[i]){
             return false
-        }else{
-            return true;
         }
     }
 
+    return true;
     
 }
 
 
 const same = function(array1,array2){
+    if(array1.length !== array2.length)  return false;
     let frequencyResult1 = {};
     let frequencyResult2 = {};
     if(array1.length !== array2.length) return false;
 
-    for(let i = 0 ; i < array1.length ;i++){
-        frequencyResult1[array1[i]] = frequencyResult1[array1[i]] ? frequencyResult1[array1[i]]+=1 : 1;
+    for(const item of array1){
+        frequencyResult1[item] = frequencyResult1[item] ? frequencyResult1[item] += 1 : 1;
     }
 
 
-    for(let k = 0 ; k < array1.length ;k++){
-        frequencyResult2[array2[k]] = frequencyResult2[array2[k]] ? frequencyResult2[array2[k]]+=1 : 1;
+    for(const item of array2){
+        frequencyResult2[ item] = frequencyResult2[item] ? frequencyResult2[item] += 1 : 1;
     }
 
     // console.log(frequencyResult2);
 
     for(const item in frequencyResult1){
-        if(!(item**2 in frequencyResult2)){
+        if(!(item**2 in frequencyResult2) ){
             return false;
         }
 
@@ -55,9 +55,9 @@ const same = function(array1,array2){
 }
 
 
-console.log(same1([1,2,3],[4,1,9])); //true
-console.log(same1([1,2,3],[1,9])); // false
-console.log(same1([1,2,1],[4,4,1])); //false
+console.log(same([1,2,3],[4,1,9])); //true
+console.log(same([1,2,3],[1,9])); // false
+console.log(same([1,2,1],[4,4,1])); //false
 
 
 

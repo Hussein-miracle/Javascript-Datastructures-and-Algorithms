@@ -1,6 +1,6 @@
 // MEDIUM
 
-// Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+// Given an integer array of size n, find all elements that appear more than ⌊ n / 3 ⌋ times.
 
 
 // Constraints:
@@ -21,8 +21,8 @@ const majorityElement = function(arr){
     }
     
     for(const item in frequency){
-        if(frequency[item] > (arr.length / 3)){
-            elements.push(item);
+        if(frequency[item] > Math.floor(arr.length / 3)){
+            elements.push(+item);
         }
     }
 
@@ -87,11 +87,11 @@ const frequencySort = function(s){
 }
 
 
-// console.log(frequencySort("Aabb")) //"bbAa" // "bbaA"
-// console.log(frequencySort("cccaaa")) //"cccaaa" // "aaaccc"
-// console.log(frequencySort("tree")) //"eert" // "eetr"
-// console.log(frequencySort("Arama")) //"aaArm" // "aarmA" // "aamrA"
-// console.log(frequencySort("olebody")) //"eert" // "eetr"
+console.log(frequencySort("Aabb")) //"bbAa" // "bbaA"
+console.log(frequencySort("cccaaa")) //"cccaaa" // "aaaccc"
+console.log(frequencySort("tree")) //"eert" // "eetr"
+console.log(frequencySort("Arama")) //"aaArm" // "aarmA" // "aamrA"
+console.log(frequencySort("olebody")) //"eert" // "eetr"
 
 
 
@@ -183,7 +183,7 @@ const words2 = ["the","day","is","sunny","the","the","the","sunny","is","is"]; c
 const words3 = ["the","lolo","day","lmao","is","sunny","lmao","the","lmao","the","the","lmao","sunny","is","lmao","lolo","is","lolo"]; const k3 = 5
 
 
-console.log(topKFrequent(words1,k1)) //["i","love"]
-// console.log(topKFrequent(words2 , k2)) // ["the","is","sunny","day"]
-// console.log(topKFrequent(words3 , k3)) 
-console.log(topKFrequent(words4 , k4)) // ["i","love","coding"]
+// console.log(topKFrequent(words1,k1)) //["i","love"]
+// // console.log(topKFrequent(words2 , k2)) // ["the","is","sunny","day"]
+// // console.log(topKFrequent(words3 , k3)) 
+// console.log(topKFrequent(words4 , k4)) // ["i","love","coding"]

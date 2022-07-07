@@ -87,14 +87,14 @@ class SLL{
     }
 
     get(index){
-        let idCount  = 0;
+        let indexCount  = 0;
         let res = []
         if(!this.head || index>=this.length || this.length < 0) return null;
         let current = this.head;
 
-        while(idCount !== index){
+        while(indexCount !== index){
             current = current.next;
-            idCount++;
+            indexCount++;
         }
 
         // res.push(current.val);
@@ -126,6 +126,7 @@ class SLL{
         if(index === 0)return !!this.unshift(value);
 
         let newNode = new Node(value);
+        
         let prevNode = this.get(index - 1);
         let temp = prevNode.next;
         prevNode.next = newNode;

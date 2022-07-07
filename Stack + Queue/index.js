@@ -22,7 +22,7 @@ class Stack{
         let node = this.first;
 
         if(this.first === this.last){
-            this.last=null;
+            this.last = null;
         }
 
         this.first = node.next;

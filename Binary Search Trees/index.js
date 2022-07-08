@@ -1,3 +1,5 @@
+const app = document.querySelector(".app");
+// console.log("🚀 ~ file: index.js ~ line 2 ~ app", app)
 class Node {
   constructor(value) {
     this.value = value;
@@ -98,6 +100,22 @@ console.log(tree.insert(16));
 console.log(tree.insert(19));
 console.log(tree.insert(11));
 console.log(tree.insert(13));
+
+tree.insert(10);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+const markup = `<p class="trial">${JSON.stringify(tree)}</p>`;
+
+app.insertAdjacentHTML("beforeend", markup);
 console.log(tree.contains(11));
 // console.log(tree, "BST tree");
 // tree.insert(2)

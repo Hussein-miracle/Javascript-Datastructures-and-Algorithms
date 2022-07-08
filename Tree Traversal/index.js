@@ -1,3 +1,5 @@
+const app = document.querySelector(".app");
+// console.log("🚀 ~ file: index.js ~ line 2 ~ app", app)
 class Node {
   constructor(value) {
     this.value = value;
@@ -140,6 +142,15 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+tree.insert(20);
+const markup = `<p class="trial">${tree}</p>`;
+
+app.insertAdjacentHTML("beforeend", markup);
 
 console.log(tree, "BST");
 console.log(tree.BFS(), "values gotten with BFS ");

@@ -110,44 +110,37 @@ const searchBST = function (root, val) {
  * @return {TreeNode}
  */
 
-const DFSInOrder = (root) => {
-  let data = [];
-
-  const traverse = (node) => {
-
-    if (node.left) traverse(node.left);
-    data.push(node.val);
-    if (node.right) traverse(node.right);
-  };
-
-  traverse(root);
-  return data;
-};
-
-
-
 const increasingBST = function (root) {
-  if(root.val === null) return null;
+  if (root.val === null) return null;
+  const DFSInOrder = (root) => {
+    let data = [];
+
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      data.push(node.val);
+      if (node.right) traverse(node.right);
+    };
+
+    traverse(root);
+    return data;
+  };
   const result = DFSInOrder(root);
   // console.log(result);
-  let start = 0;
   const beginner = result[0];
   // console.log(beginner)
   const len = result.length;
   // console.log(len)
   const temp = new TreeNode(beginner);
-  let res =  temp;
+  let res = temp;
 
-
-
-  for(let i = 1;i < len ;i++){
+  for (let i = 1; i < len; i++) {
     res.right = new TreeNode(result[i]);
     res = res.right;
   }
   return temp;
 };
 
-console.log(increasingBST(tree.root), "increasingBST");
+// console.log(increasingBST(tree.root), "increasingBST");
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -160,29 +153,67 @@ console.log(increasingBST(tree.root), "increasingBST");
  * @param {number[]} nums
  * @return {TreeNode}
  */
-const sortedArrayToBST = function (nums) {
-  let arr = nums.sort((a, b) => a - b);
+const sortedArrToBST = function (nums) {
+  let arr = [...nums];
   let start = 0;
   let end = nums.length - 1;
   let mid = Math.floor((start + end) / 2);
-  // console.log(arr[mid]);
-  let midItem = arr[mid];
-  const node = new TreeNode(arr[mid]);
+  let node = new TreeNode(arr[mid]);
   let temp = node;
-  while(start < end){
-    if(temp.val > arr[mid+1]){
-
-    }else{
-
+  while (start < mid) {
+    let b = new TreeNode(arr[start]);
+    if(b.val > temp.val){
+      temp.right = b;
+      temp = temp.right;
+    }else {
+      temp.left = b;
+      temp = temp.left;
     }
+    start+=1;
+
   }
 
-  return  node;
+  temp = node;
+  // mid = mid + 1;
+  while (mid <= end) {
+    let b = new TreeNode(arr[mid]);
+    if(b.val > temp.val){
+      temp.right = b;
+      temp = temp.right;
+    }else {
+      temp.left = b;
+      temp = temp.left;
+    }
+    mid+=1;
+
+  }
+
+
+
+
+  return node;
 };
 
+const sortedArrayToBST =  function(nums, start = 0, end = nums.length - 1){
+  if (start > end) return null;
+
+  let mid = Math.floor((start + end) / 2);
+  let node = new TreeNode(nums[mid]);
+
+  node.right =  sortedArrayToBST(nums,mid+1,end);
+  node.left =  sortedArrayToBST(nums,start,mid-1);
+
+  return node;
+};
 const nums1 = [-10, -3, 0, 5, 9];
 
 const nums2 = [1, 3];
 
+const nums3 = [0,1,2,3,4,5];
+
 // console.log("line 74 ~ sortedArrayToBST", sortedArrayToBST(nums1));
+// console.log("line 74 ~ sortedArrayToBST", sortedArrayToBST(nums2));
+console.log("line 74 ~ sortedArrayToBST", sortedArrayToBST(nums3));
+console.log("line 74 ~ sortedArrayToBST", sortedArrToBST(nums3));
+// console.log("line 194 ~ sABST", sABST(nums1));
 // console.log("line 75 ~ sortedArrayToBST", sortedArrayToBST(nums2));

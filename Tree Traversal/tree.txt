@@ -6,7 +6,8 @@ Q2:https://leetcode.com/problems/increasing-order-search-tree/
 Q3:https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 
 
-MEDIUN:
+
+MEDIUM:
 Q1)https://leetcode.com/problems/validate-binary-search-tree/	
 Q2)https://leetcode.com/problems/insert-into-a-binary-search-tree/
 Q3)https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/

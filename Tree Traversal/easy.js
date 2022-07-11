@@ -174,9 +174,14 @@ const sortedArrToBST = function (nums) {
   }
 
   temp = node;
-  // mid = mid + 1;
-  while (mid <= end) {
+  mid = mid + 1;
+
+  // console.log(arr[mid]);
+
+  while (mid < end) {
+
     let b = new TreeNode(arr[mid]);
+
     if(b.val > temp.val){
       temp.right = b;
       temp = temp.right;
@@ -184,12 +189,15 @@ const sortedArrToBST = function (nums) {
       temp.left = b;
       temp = temp.left;
     }
+
+
     mid+=1;
 
   }
 
 
 
+  // console.log(temp)
 
   return node;
 };

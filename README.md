@@ -23,7 +23,7 @@ The topics that have been touched are marked with ✅.
 ### Stacks + Queues✅;
 ### Binary search Trees✅;
 ### Tree traversal (Breadth first search and Depth first search)✅;
-### Binary Heaps;
+### Binary Heaps✅;
 ### Hash Tables;
 ### Graph Traversal (Bfs and Dfs)
 ### Dijkstra's Algorithm;

@@ -43,11 +43,51 @@ class PriorityQueue{
 
 
   dequeue(){
+    const min = this.values[0];
+    const end = this.values.pop();
+    const len = this.values.length;
 
+    if(len > 0){
+      this.values[0] = end;
+      this.sinkDown();
+    }
+
+    return min;
   }
 
   sinkDown(){
-    
+    let index = 0;
+    const length = this.values.length;
+    const element = this.values[index];
+
+
+    while(true){
+      let leftChildIndex = 2 * index + 1;
+      let rightChildIndex = 2 * index + 2;
+
+      let leftChild = undefined;
+      let rightChild = undefined;
+      let swapIndex = null;
+
+      if(leftChildIndex < length){
+        leftChild = this.values[leftChildIndex];
+
+        if(leftChild.priority < element.priority){
+          swapIndex = leftChildIndex;
+        }
+      }
+
+      if(rightChildIndex < length){
+        rightChild = this.values[rightChildIndex];
+
+        if((swapIndex === null && rightChild.priority < leftChild.priority) || (swapIndex!== null && rightChild.priority < leftChild.priority)) swapIndex = rightChildIndex;
+      }
+
+
+      if(swapIndex === null) break;
+
+      index = swapIndex;
+    }
   }
 }
 

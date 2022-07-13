@@ -16,9 +16,6 @@ class PriorityQueue{
     const node = new QueueNode(val,priority);
     this.values.push(node);
     this.bubbleUp();
-    // console.log(this.values)
-    // console.log(this)/\
-    // return this.values;
   }
 
 

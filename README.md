@@ -24,7 +24,7 @@ The topics that have been touched are marked with ✅.
 ### Binary search Trees✅;
 ### Tree traversal (Breadth first search and Depth first search)✅;
 ### Binary Heaps✅;
-### Hash Tables;
-### Graphs;
+### Hash Tables✅;
+### Graphs✅;
 ### Graph Traversal (Bfs and Dfs)
 ### Dijkstra's Algorithm;

@@ -1,0 +1,19 @@
+Sliding Window
+Frequency Counter
+Multiple Pointer
+Divide and Conquer
+Fast and Slow pointers
+Matrix
+Bitwise XOR
+ Merge Intervals
+ Cyclic sort
+ In-place reversal of linked list
+Tree BFS
+Tree DFS
+Two heaps
+Subsets
+Modified binary search
+Top K elements
+Topological sort
+Recursion/Backtracking
+0/1 Knapsack (Dynamic Programming)

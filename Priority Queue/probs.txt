@@ -1,0 +1,11 @@
+PRIORITY QUEUE 
+EASY:
+Q1) https://leetcode.com/problems/relative-ranks/
+Q2)https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+Q3)https://leetcode.com/problems/last-stone-weight/
+Q4)https://leetcode.com/problems/kth-largest-element-in-a-stream/
+
+MEDIUM:
+Q1) https://leetcode.com/problems/maximum-average-pass-ratio/
+Q2) https://leetcode.com/problems/top-k-frequent-elements/
+Q3)https://leetcode.com/problems/find-k-pairs-with-smallest-sums/

@@ -219,7 +219,7 @@ var customSortString = function (order, s) {
   }
   // console.log(hash);
   // console.log(mapS)
-//   console.log(sCopy , "unsortedd")
+  //   console.log(sCopy , "unsortedd")
 
   for (let j = 0; j < orderCopy.length; j++) {
     const freq = orderCopy[j];
@@ -231,9 +231,9 @@ var customSortString = function (order, s) {
   }
 
   sCopy = sCopy.sort();
-//   console.log(sCopy , "sortedd")
+  //   console.log(sCopy , "sortedd")
   for (let j = 0; j < sCopy.length; j++) {
-    const item = sCopy[j]
+    const item = sCopy[j];
     if (!result.includes(item)) {
       result += item.repeat(mapS[item]);
     }
@@ -256,21 +256,20 @@ var customSortString = function (order, s) {
 //   )
 // );
 
-
 const product = (arr) => {
-    const res = []
-    for(let i = 0; i < arr.length;i++){
-        let t = 1;
-        for(let j = 0; j < arr.length;j++){
-            if( arr[i] !== [j]){
-                t *= arr[j]
-            } 
-        }
-
-        res.push(t);
+  const res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let t = 1;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] !== [j]) {
+        t *= arr[j];
+      }
     }
-    return res;
-}
+
+    res.push(t);
+  }
+  return res;
+};
 
 // console.log(product([1,2,3,4]))[24,12,8,6]
 
@@ -283,6 +282,55 @@ const product = (arr) => {
 
 // Team A has played three matches and has scored <em>teamA = [1, 2, 3]</em>&nbsp;goals in each match respectively. Team B&nbsp;has played two matches and has scored <em>teamB = [2, 4]</em>&nbsp;goals in each match respectively. For <em>2</em> goals scored by team B in its first match, team A has <em>2</em> matches with scores <em>1</em> and <em>2</em>. For <em>4</em> goals scored by team B in its second match, team A has <em>3</em> matches with scores <em>1</em>, <em>2</em> and <em>3</em>. Hence, the answer is <em>[2, 3]</em><strong><em>. </em></strong></p>
 
-
 // Return</td>
-{/* <td class="left">An array of <em>m</em> positive integers, one&nbsp;<em>for each maxes<sub>i&nbsp;</sub></em>&nbsp;representing&nbsp;the total number of elements <em>nums<sub>j</sub></em> satisfying <em>nums<sub>j</sub> &le; maxes<sub>i </sub></em>where <em>0 &le; j &lt; n</em> and <em>0 &le; i &lt; m,</em> in the given order.</td> */}
+{
+  /* <td class="left">An array of <em>m</em> positive integers, one&nbsp;<em>for each maxes<sub>i&nbsp;</sub></em>&nbsp;representing&nbsp;the total number of elements <em>nums<sub>j</sub></em> satisfying <em>nums<sub>j</sub> &le; maxes<sub>i </sub></em>where <em>0 &le; j &lt; n</em> and <em>0 &le; i &lt; m,</em> in the given order.</td> */
+}
+
+// console.log( parseInt(00000011,2))
+// console.log((1).toString(2));
+// console.log((4555).toString(2)); // 1000111001011
+// console.log(parseInt(1000111001011,2));  //4555
+
+// bitwise operations'
+// 1) bitwise OR in js (1 | 2)
+// console.log(1 | 2);
+
+// 2) bitwise AND in js (1 & 2)
+// console.log(1 & 2);
+// 1) bitwise OR in js (1 | 2)
+
+// AND TABLE
+
+//  0 & 0 = 0;
+//  0 & 1 = 0;
+//  1 & 1 = 1;
+
+// OR TABLE
+
+//  0 | 0 = 0;
+//  0 | 1 = 1;
+//  1 | 1 = 1;
+
+// XOR TABLE - op
+
+//  0 ^ 0 = 0;
+//  0 ^ 1 = 1;
+//  1 ^ 1 = 0;
+
+// NOT  TABLE ~
+
+
+
+
+// shift  left
+
+console.log( 9 << 2); // 36
+console.log( 19 << 2); // 76
+console.log( (9).toString(2)); // 1001
+console.log( (+'0b100100').toString(10));
+console.log( (+`0b${(19).toString(2)}00`).toString(10));
+
+// shift  right
+// console.log( 9 >> 2); // 2
+// console.log( (2).toString(9)); // 2

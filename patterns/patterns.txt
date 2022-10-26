@@ -6,13 +6,12 @@ Fast and Slow pointers
 Matrix
 Tree Breadth First Search
 Tree Depth First Search
- Subsets
+Subsets
 Two Heaps
 Bitwise XOR
- Merge Intervals
- Cyclic sort
- In-place reversal of linked list
-
+Merge Intervals
+Cyclic sort
+In-place reversal of linked list
 Modified binary search
 Top K elements
 Topological sort

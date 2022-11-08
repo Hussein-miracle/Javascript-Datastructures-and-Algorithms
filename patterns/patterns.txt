@@ -1,19 +1,18 @@
 Sliding Window
-Frequency Counter
-Multiple Pointer
-Divide and Conquer
-Fast and Slow pointers
 Matrix
-Tree Breadth First Search
-Tree Depth First Search
-Subsets
-Two Heaps
-Bitwise XOR
+Two Pointer
+Fast and Slow pointers
 Merge Intervals
 Cyclic sort
 In-place reversal of linked list
+Tree Breadth First Search
+Tree Depth First Search
+Two Heaps
+Subsets
 Modified binary search
+Bitwise XOR
 Top K elements
+K-way Merge
+0/1 Knapsack (Dynamic Programming)
 Topological sort
 Recursion/Backtracking
-0/1 Knapsack (Dynamic Programming)

@@ -58,9 +58,9 @@ var lengthOfLongestSubstring = function(s) {    /// GOT A BUG
 
     // return sortedStr[0];
 };
+
 // console.log(lengthOfLongestSubstring("abcabcbb"))//3
-// new Array().
-console.log(lengthOfLongestSubstring("bbbbb"))//1
+// console.log(lengthOfLongestSubstring("bbbbb"))//1
 // console.log(lengthOfLongestSubstring("pwwkew"))//3
 // console.log(lengthOfLongestSubstring("pwwwkereetwerk"))//5
 // Constraints:
@@ -68,8 +68,14 @@ console.log(lengthOfLongestSubstring("bbbbb"))//1
 // 0 <= s.length <= 5 * 10^4
 // s consists of English letters, digits, symbols and spaces.
 
+const slidingWindowLengthofLongestSubstring = (s) => {
 
+}
 
+console.log(slidingWindowLengthofLongestSubstring("abcabcbb"))//3
+console.log(slidingWindowLengthofLongestSubstring("bbbbb"))//1
+console.log(slidingWindowLengthofLongestSubstring("pwwkew"))//3
+console.log(slidingWindowLengthofLongestSubstring("pwwwkereetwerk"))//5
 
 
 // Q2
@@ -136,6 +142,10 @@ const findAnagrams = function(s, p) { /// NEED TO REFACTOR // TOO SLOW
 
     return indexArr;
 };
+
+const slidingWindowFindAnagrams = (s,p) => {
+
+}
 
 // Constraints:
 
@@ -212,3 +222,10 @@ const numOfSubarrays = function(arr, k, threshold) { // OPTIMAL SOLUTION
 // console.log(numOfSubarrays( [2852,5203,9375,3209,932,9529,4416,3525,2435,3131,3232,2047,2871,3550,5923,4553,2086,5990,4580,2948,8522,4850,3597,744,6963,8126,2153,258,1955,3169,3165,4334,791,5342,4348,5404,8531,1045,7767,9842],
 //     17,
 //     65))//24
+
+
+const slidingWindowNumOfSubarrays = (arr,k,threshold) => {
+
+}
+
+

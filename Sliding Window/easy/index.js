@@ -1,5 +1,29 @@
 //Q1 // 1876. Substrings of Size Three with Distinct Characters //SOLVED
 
+
+const slidingWindowCountGoodSubstrings = (s) => {
+  let count = 0;
+  const len = s.length - 3 + 1;
+
+  for (let i = 0; i < len; i++) {
+    const chars = s.substring(i, i + 3);
+    const set = new Set(chars);
+    if (set.size === 3) {
+      count++;
+    }
+  }
+
+
+  return count;
+}
+
+
+// console.log(slidingWindowCountGoodSubstrings("xyzabc")) // 4
+// console.log(slidingWindowCountGoodSubstrings("xyzzaz")) // 1
+// console.log(slidingWindowCountGoodSubstrings("zzaz")) // 0
+// console.log(slidingWindowCountGoodSubstrings("aababcabc")) //output:4
+
+
 const countGoodSubstrings1 = function (s) {
   if (!(s.length > 1)) return null;
   const str = s.split("");
@@ -57,6 +81,31 @@ const countGoodSubstrings = function (s) {
 
 //Q2:// 485. Max Consecutive Ones  //SOLVED
 
+const slidingWindowFindMaxConsecutiveOnes = (nums) => {
+  let count = 0;
+  const len = nums.length;
+  let max = Number.MIN_SAFE_INTEGER;
+
+  for (let i = 0; i < len; i++) {
+    const num = nums[i];
+
+    if (num === 1) {
+      count++;
+    } else {
+      count = 0;
+    }
+
+    max = Math.max(count, max);
+  }
+
+  return max;
+}
+
+// console.log(slidingWindowFindMaxConsecutiveOnes([1,1,0,1,1,1])) // Output: 3))
+// console.log(slidingWindowFindMaxConsecutiveOnes([1,0,1,1,0,1]))  // Output: 2
+// console.log(slidingWindowFindMaxConsecutiveOnes([1,0,1,1,0,1,1,1,1]))  // Output: 4
+// console.log(slidingWindowFindMaxConsecutiveOnes([1,0,1,1,1,0,1,1,1,1,1,0,0,0,1,1,1,1]))  // Output: 5
+
 const findMaxConsecutiveOnes = function (nums) {
   // OPTIMAL .FAST
   if (nums.length > 10 ** 5 || nums.length < 1) return null;
@@ -78,6 +127,7 @@ const findMaxConsecutiveOnes = function (nums) {
   return maxOnes;
 };
 
+
 // console.log(findMaxConsecutiveOnes([1,1,0,1,1,1])) // Output: 3))
 // console.log(findMaxConsecutiveOnes([1,0,1,1,0,1]))  // Output: 2
 // console.log(findMaxConsecutiveOnes([1,0,1,1,0,1,1,1,1]))  // Output: 4
@@ -86,8 +136,8 @@ const findMaxConsecutiveOnes = function (nums) {
 //Q3
 `1984. Minimum Difference Between Highest and Lowest of K Scores
 
-You are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. You are also given an integer k.
-
+You are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. 
+You are also given an integer k.
 Pick the scores of any k students from the array so that the difference between the highest and the lowest of the k scores is minimized.
 
 Return the minimum possible difference.
@@ -151,28 +201,64 @@ const minimumDifference = function (nums, k) {
 // console.log(minimumDifference([9,4,1,7],  3) ); //output:2
 
 const minimumDifference2 = (nums, k) => {
-    if (nums.length <= 1) return 0;
+  if (nums.length <= 1) return 0;
 
-    const arr = [...nums].sort((a, b) => b - a);
+  const arr = [...nums].sort((a, b) => b - a);
   //   console.log(arr)
 
-    let minDiff = Number.MAX_SAFE_INTEGER;
-    for (let i = 0; i < arr.length - k + 1; i++) {
+  let minDiff = Number.MAX_SAFE_INTEGER;
+  for (let i = 0; i < arr.length - k + 1; i++) {
     //   const temp =  nums[i] - nums[i + k - 1]; // 9 - 7 = 2
     //   const temp =  nums[i] - nums[i + k - 1]; // 7 - 4 = 3 
-      const temp =  arr[i] - arr[i + k - 1]; // 4 - 1 = 3 
-      minDiff = Math.min(minDiff, temp);
+    const temp = arr[i] - arr[i + k - 1]; // 4 - 1 = 3 
+    minDiff = Math.min(minDiff, temp);
 
-    }
+  }
 
-    return minDiff;
+  return minDiff;
 
 };
 
 // console.log(minimumDifference2([90],  1) ); //output:0
-console.log(minimumDifference2([9, 4, 1, 7], 2)); //output:2
-console.log(
-  minimumDifference2([87063, 61094, 44530, 21297, 95857, 93551, 9918], 6)
-); //output:74560
+// console.log(minimumDifference2([9, 4, 1, 7], 2)); //output:2
+// console.log( minimumDifference2([87063, 61094, 44530, 21297, 95857, 93551, 9918], 6)); //output:74560
 // console.log(minimumDifference([9,4,1,7],  2) ); //output:2
 // console.log(minimumDifference([9,4,1,7],  3) ); //output:2
+
+
+
+const slidingWindowMinimumDifference = (nums, k) => {
+
+  if(nums.length === 1) return 0;
+  const len = nums.length - k + 1;
+
+  const arr = nums.sort((a,b) => b - a);
+  // console.log(arr);
+
+  let min = Number.MAX_SAFE_INTEGER;
+
+  for(let i = 0; i < len ; i++){
+    // console.log(arr[i]);
+    const num = arr[i];
+
+    let diff = 0;
+
+
+
+    for(let j = i ; j < i+k-1 ; j++){
+      diff = num - arr[j+1];
+      // console.log( arr[j+1] , j );
+      // console.log(diff, 'diff',i,j);
+      min = Math.min(diff,min);
+    }
+  }
+
+
+  return min;
+}
+
+console.log(slidingWindowMinimumDifference([90], 1)); //output:0
+console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 2)); //output:2
+console.log(slidingWindowMinimumDifference([87063, 61094, 44530, 21297, 95857, 93551, 9918], 6)); //output:74560
+console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 2)); //output:2
+console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 3)); //output:2

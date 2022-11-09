@@ -2,7 +2,7 @@ The topic that is being learned currently marked with ⚡.
 The topics that have been learned are marked with ✅.
 
 
-## The topics in order:
+## The topics in order 🛡️:
 
 ### Sliding Window
 ### Matrix

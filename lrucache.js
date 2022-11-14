@@ -28,7 +28,7 @@ class LRUCache{
   }
 
 
-  getCache(){
+  get getCache(){
     return this.cache;
   }
 
@@ -48,3 +48,4 @@ console.log(cache.set("cc",5));
 console.log(cache.set("a",8));
 console.log(cache.set("c",5));
 console.log(cache.size,"size of cache")
+console.log(cache.getCache,"size of cache")

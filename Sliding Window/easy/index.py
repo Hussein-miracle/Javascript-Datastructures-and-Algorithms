@@ -1,4 +1,5 @@
-# from math import max
+import math
+
 def findMaxSumSubarray(k,arr):
   maxSum = 0
   windowStart = 0
@@ -7,14 +8,10 @@ def findMaxSumSubarray(k,arr):
   for i in range(len(arr)):
     sum += arr[i]
 
-
     if(i >= k-1):
       maxSum = max(maxSum,sum)
       sum -= arr[windowStart]
       windowStart+=1
-
-
-
 
   return maxSum
 

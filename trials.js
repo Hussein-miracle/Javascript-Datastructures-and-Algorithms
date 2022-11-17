@@ -325,12 +325,90 @@ const product = (arr) => {
 
 // shift  left
 
-console.log( 9 << 2); // 36
-console.log( 19 << 2); // 76
-console.log( (9).toString(2)); // 1001
-console.log( (+'0b100100').toString(10));
-console.log( (+`0b${(19).toString(2)}00`).toString(10));
+// console.log( 9 << 2); // 36
+// console.log( 19 << 2); // 76
+// console.log( (9).toString(2)); // 1001
+// console.log( (+'0b100100').toString(10));
+// console.log( (+`0b${(19).toString(2)}00`).toString(10));
 
 // shift  right
 // console.log( 9 >> 2); // 2
 // console.log( (2).toString(9)); // 2
+
+
+
+class Robot{
+  constructor(width = 5,height = 5){
+    this.columns = width;
+    this.rows = height;
+    this.x = 0;
+    this.y = 0;
+    this.robot = 'robot'
+    this.grid = [];
+    this.populateGrid();
+  }
+
+
+  populateGrid(){
+    for(let i = 0; i < this.rows;i++){
+      const column = [];
+      for(let j = 0; j < this.columns;j++){
+        column.push(0);
+      }
+
+      this.grid.push(column);
+    }
+  }
+
+  stepInGrid(step){
+    switch(step){
+      case 'U': 
+        this.y += 1;
+        const grid = this.grid;
+        // if()
+        break;
+      case 'D':
+        this.y -= 1;
+        break;
+      case 'L':
+        this.x -= 1;
+        break;
+      case 'R':
+        this.x += 1;
+        break;
+    }
+  }
+
+  _step(str){
+    switch(str){
+      case 'U': 
+        this.y += 1;
+        break;
+      case 'D':
+        this.y -= 1;
+        break;
+      case 'L':
+        this.x -= 1;
+        break;
+      case 'R':
+        this.x += 1;
+        break;
+    }
+  }
+
+  move(str){
+    for(const item of str){
+      this._step(item);
+    }
+
+    return  `(${this.x},${this.y})`;
+  }
+}
+
+
+const rob = new Robot(5,5);
+// console.log(rob.move('UDDLRL'));
+console.log(rob.grid);
+// const robot = new Robot()
+// // console.log(robot.move('UDDLLRUUUDUURUDDUULLDRRRR'));
+// console.log(robot.grid);

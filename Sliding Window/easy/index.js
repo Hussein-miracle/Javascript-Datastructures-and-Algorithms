@@ -227,38 +227,54 @@ const minimumDifference2 = (nums, k) => {
 
 
 
+
 const slidingWindowMinimumDifference = (nums, k) => {
 
   if(nums.length === 1) return 0;
-  const len = nums.length - k + 1;
-
-  const arr = nums.sort((a,b) => b - a);
-  // console.log(arr);
-
+  const len = nums.length;
+  
+  // * ! [9, 4, 1, 7], 3
+  const arr = nums.sort((a,b) =>  a - b);
+  // console.log(arr,'arr sorted');
   let min = Number.MAX_SAFE_INTEGER;
+  let windowStart = 0;
 
-  for(let i = 0; i < len ; i++){
-    // console.log(arr[i]);
-    const num = arr[i];
+  // ? [1, 4, 7 ,9], 3
+  // console.log('NOTE THE WINDOW LENGTH IS :',k);
 
-    let diff = 0;
+  for(let windowEnd = 0; windowEnd < len;windowEnd++){
+    const currentEnd = arr[windowEnd];
 
+    if(windowEnd >= k - 1){
+      // console.log('index',windowEnd ,'is > or = to',k);
 
+      const currentStart =  arr[windowStart];
 
-    for(let j = i ; j < i+k-1 ; j++){
-      diff = num - arr[j+1];
-      // console.log( arr[j+1] , j );
-      // console.log(diff, 'diff',i,j);
-      min = Math.min(diff,min);
+      // console.log(currentStart , 'currentStart');
+
+      // * since its sorted the first is the smallest and last is the biggest
+
+      // console.log(currentEnd , 'currentEnd');
+
+      const diff = currentEnd - currentStart;
+
+      // console.log(diff , 'diff');
+
+      min = Math.min(min, diff);
+
+      windowStart++;
+
     }
   }
 
 
+
+  if(min === Number.MAX_SAFE_INTEGER) return 0;
+
   return min;
 }
 
-console.log(slidingWindowMinimumDifference([90], 1)); //output:0
-console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 2)); //output:2
+// console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 2)); //output:2
+// console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 3)); //output:5
+// console.log(slidingWindowMinimumDifference([90], 1)); //output:0
 console.log(slidingWindowMinimumDifference([87063, 61094, 44530, 21297, 95857, 93551, 9918], 6)); //output:74560
-console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 2)); //output:2
-console.log(slidingWindowMinimumDifference([9, 4, 1, 7], 3)); //output:2

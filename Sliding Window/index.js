@@ -100,7 +100,7 @@ function maxSubarraySum3(arr, num) {
     return maxSum;
 }
 
-console.log(maxSubarraySum3([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
+// console.log(maxSubarraySum3([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
 // console.log(slidingWindowMaxSubarraySum( [2,6,9,2,1,8,5,6,3] , 3 ));
 
 
@@ -153,9 +153,34 @@ const slidingWindowImproved = (k, arr) => {
 
 
 const smallest_subarray_with_given_sum = (s, arr) => {
+    let windowStart = 0;
+    let windowSum = 0;
+    let len = arr.length;
+    let minLength = Infinity;
 
+    for(let windowEnd = 0; windowEnd < len;windowEnd++){
+        windowSum += arr[windowEnd];
 
-    return 0;
+        // let iter = 1;
+        while(windowSum >= s){
+            const windowLen = windowEnd - windowStart + 1;
+            // console.log(windowLen , 'windowLen',`for iteration ${iter}`)
+            minLength = Math.min(minLength,windowLen);
+            // console.log(minLength , 'minLength',`for iteration ${iter}`);
+            windowSum -= arr[windowStart];
+
+            windowStart++;
+            // iter++;
+        }
+    }
+
+    // console.log(windowSum)
+
+    if(minLength === Number.MAX_SAFE_INTEGER){
+        return 0;
+    }
+
+    return minLength;
 }
 
 console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])) //2

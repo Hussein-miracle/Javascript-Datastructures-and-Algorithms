@@ -230,8 +230,8 @@ const minimumDifference2 = (nums, k) => {
 
 const slidingWindowMinimumDifference = (nums, k) => {
 
-  if(nums.length === 1) return 0;
   const len = nums.length;
+  if(len === 1) return 0;
   
   // * ! [9, 4, 1, 7], 3
   const arr = nums.sort((a,b) =>  a - b);

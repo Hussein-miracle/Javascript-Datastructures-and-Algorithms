@@ -68,14 +68,17 @@ var lengthOfLongestSubstring = function(s) {    /// GOT A BUG
 // 0 <= s.length <= 5 * 10^4
 // s consists of English letters, digits, symbols and spaces.
 
+
+
 const slidingWindowLengthofLongestSubstring = (s) => {
 
 }
 
-console.log(slidingWindowLengthofLongestSubstring("abcabcbb"))//3
-console.log(slidingWindowLengthofLongestSubstring("bbbbb"))//1
-console.log(slidingWindowLengthofLongestSubstring("pwwkew"))//3
-console.log(slidingWindowLengthofLongestSubstring("pwwwkereetwerk"))//5
+
+// console.log(slidingWindowLengthofLongestSubstring("abcabcbb"))//3
+// console.log(slidingWindowLengthofLongestSubstring("bbbbb"))//1
+// console.log(slidingWindowLengthofLongestSubstring("pwwkew"))//3
+// console.log(slidingWindowLengthofLongestSubstring("pwwwkereetwerk"))//5
 
 
 // Q2
@@ -227,5 +230,8 @@ const numOfSubarrays = function(arr, k, threshold) { // OPTIMAL SOLUTION
 const slidingWindowNumOfSubarrays = (arr,k,threshold) => {
 
 }
+
+
+
 
 

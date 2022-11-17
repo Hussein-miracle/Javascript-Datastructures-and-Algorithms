@@ -1,3 +1,5 @@
+// * EASY
+
 // function maxSubarraySum(arr, num) {
 //     if ( num > arr.length){
 //         return null;
@@ -183,6 +185,52 @@ const smallest_subarray_with_given_sum = (s, arr) => {
     return minLength;
 }
 
-console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])) //2
-console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 8])) //1
-console.log(smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])) //3
+// console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])) //2
+// console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 8])) //1
+// console.log(smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])) //3
+
+
+// ! Given a string, find the length of the longest substring in it with no more than K distinct characters.
+
+
+const lengthOfLongestSubstringSlidingWindow = (s,k) => {
+    const len = s.length;
+    let windowStart = 0;
+    const hash = {};
+    let maxLength  = -Infinity;
+
+
+    for(let windowEnd = 0; windowEnd < len ;windowEnd++){
+        const char = s[windowEnd];
+        if(!hash[char]){
+            hash[char] = 0;
+        }
+
+        hash[char] +=1;
+
+        // console.log(hash)
+
+        const keysLen = Object.keys(hash).length;
+        // console.log(keysLen);
+
+        while( Object.keys(hash).length > k){
+            const leftChar = s[windowStart];
+            hash[leftChar] -= 1;
+            if(hash[leftChar] === 0){
+                delete hash[leftChar];
+            }
+
+            windowStart++;
+        }
+        const diff = windowEnd - windowStart+1;
+        maxLength = Math.max(maxLength,diff);
+
+    }
+
+    return maxLength;
+}
+
+
+console.log(lengthOfLongestSubstringSlidingWindow('araaci',2)); //4
+// console.log(lengthOfLongestSubstringSlidingWindow('araaci',1)); //2
+// console.log(lengthOfLongestSubstringSlidingWindow("cbbebi" ,3));//5

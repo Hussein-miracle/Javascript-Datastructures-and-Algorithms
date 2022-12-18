@@ -5,7 +5,7 @@ The topics that have been touched are marked with ✅.
 ## The topics in other:
 ### Frequency Counter ✅;
 ### Multiple Pointers✅;
-### Sliding Window✅;
+### Sliding Window✅ ⚡;
 ### Recursion ✅;
 ### Searching Algorithms (Linear and Binary);
     * __Linear Search__ ✅;
@@ -24,7 +24,7 @@ The topics that have been touched are marked with ✅.
 ### Binary search Trees✅;
 ### Tree traversal (Breadth first search and Depth first search)✅;
 ### Binary Heaps✅;
-### Hash Tables;
-### Graphs;
-### Graph Traversal (Bfs and Dfs)
+### Hash Tables✅;
+### Graphs✅;
+### Graph Traversal (Bfs and Dfs)✅;
 ### Dijkstra's Algorithm;

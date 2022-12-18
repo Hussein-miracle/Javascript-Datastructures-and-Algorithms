@@ -158,12 +158,12 @@ const smallest_subarray_with_given_sum = (s, arr) => {
     let windowStart = 0;
     let windowSum = 0;
     let len = arr.length;
-    let minLength = Infinity;
+    let minLength = Number.MAX_SAFE_INTEGER;
 
     for(let windowEnd = 0; windowEnd < len;windowEnd++){
         windowSum += arr[windowEnd];
 
-        // let iter = 1;
+        // let iter = 1; 
         while(windowSum >= s){
             const windowLen = windowEnd - windowStart + 1;
             // console.log(windowLen , 'windowLen',`for iteration ${iter}`)
@@ -185,12 +185,12 @@ const smallest_subarray_with_given_sum = (s, arr) => {
     return minLength;
 }
 
-// console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])) //2
+// console.log(smallest_s ubarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])) //2
 // console.log(smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 8])) //1
 // console.log(smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])) //3
 
 
-// ! Given a string, find the length of the longest substring in it with no more than K distinct characters.
+// * Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
 
 const lengthOfLongestSubstringSlidingWindow = (s,k) => {
@@ -210,7 +210,7 @@ const lengthOfLongestSubstringSlidingWindow = (s,k) => {
 
         // console.log(hash)
 
-        const keysLen = Object.keys(hash).length;
+        const keysLen = Object.keys(hash);
         // console.log(keysLen);
 
         while( Object.keys(hash).length > k){
@@ -222,7 +222,10 @@ const lengthOfLongestSubstringSlidingWindow = (s,k) => {
 
             windowStart++;
         }
-        const diff = windowEnd - windowStart+1;
+
+        
+        const diff = windowEnd - windowStart + 1;
+
         maxLength = Math.max(maxLength,diff);
 
     }

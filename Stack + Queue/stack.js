@@ -26,14 +26,18 @@ class Stack {
     }
     pop(){
         if(!this.first) return null;
-        var temp = this.first;
-
+        const temp = this.first;
+        
         if(this.first === this.last){
             this.last = null;
         }
-
+        
         this.first = this.first.next;
+
+        temp.next = null;
+
         this.size--;
+
         return temp.value;
     }
 

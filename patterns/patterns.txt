@@ -1,4 +1,4 @@
-Sliding Window
+Sliding Window ⚡
 Matrix
 Two Pointer
 Fast and Slow pointers

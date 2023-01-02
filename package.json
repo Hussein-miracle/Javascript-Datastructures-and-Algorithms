@@ -1,0 +1,20 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "This is a repo for solutions to data structures and algorithms.\r The topics that have been touched are marked with ✅.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hussein-miracle/Javascript-Datastructures-and-Algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hussein-miracle/Javascript-Datastructures-and-Algorithms/issues"
+  },
+  "homepage": "https://github.com/Hussein-miracle/Javascript-Datastructures-and-Algorithms#readme"
+}

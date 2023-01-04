@@ -62,7 +62,6 @@ function mergeSortedArrays(array1, array2) {
       mergedArray.push(array1Item);
       array1Item = array1[i];
       i++;
-
     } else {
       mergedArray.push(array2Item);
       array2Item = array2[j];
@@ -72,4 +71,51 @@ function mergeSortedArrays(array1, array2) {
   return mergedArray;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]));
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+// const twoSum = function (nums, target) {
+
+//   if(nums.length < 2){
+//     return nums[0];
+//   }
+
+//   for (let i = 0; i < nums.length; i++) {
+//     const num1 = nums[i];
+//     for (let j = 1; j < nums.length; j++) {
+//       const num2 = nums[j];
+
+//       if (num1 + num2 === target) {
+//         return [i, j];
+//       }
+//     }
+//   }
+// };
+
+const twoSum = function (nums, target) {
+  const hash = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    const diff = target - num;
+
+    // if(!hash[diff]){
+    //   // hash[diff] = i;
+    // }
+    
+    // else{
+
+    //   return [hash[num],i];
+    // }
+  }
+
+
+};
+
+console.log(twoSum((nums = [2, 7, 11, 15]), (target = 9)));  // ? [0,1]
+console.log(twoSum((nums = [3, 2, 4]), (target = 6))); // ? [1,2]
+console.log(twoSum(nums = [3,3], target = 6)); // ? [0,1]
